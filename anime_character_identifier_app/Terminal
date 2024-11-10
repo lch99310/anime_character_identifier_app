@@ -1,5 +1,0 @@
-mkdir -p anime_character_identifier_app/Core
-mkdir -p anime_character_identifier_app/Features/{Camera,Recognition,Results,YouTube}
-mkdir -p anime_character_identifier_app/Services
-mkdir -p anime_character_identifier_app/Models
-mkdir -p anime_character_identifier_app/Utils/Extensions 

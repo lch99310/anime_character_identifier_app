@@ -1,0 +1,28 @@
+// Common
+"ok" = "確定";
+"cancel" = "取消";
+"retry" = "重試";
+"error" = "錯誤";
+"loading" = "載入中...";
+
+// Home
+"home.title" = "AC Identifier";
+"home.placeholder" = "選擇或拍攝一張動漫角色圖片";
+"home.camera.button" = "拍照";
+"home.gallery.button" = "從相冊選擇";
+
+// Camera
+"camera.error.access" = "無法訪問相機";
+"camera.error.setup" = "相機設置失敗";
+
+// Character Detail
+"character.unknown" = "未知角色";
+"character.no_description" = "暫無描述";
+"character.quotes.title" = "經典台詞";
+
+// Errors
+"error.network" = "網絡連接失敗，請檢查網絡設置";
+"error.camera_access" = "無法訪問相機，請在設置中允許訪問相機權限";
+"error.photo_access" = "無法訪問相冊，請在設置中允許訪問相冊權限";
+"error.processing" = "圖片處理失敗，請重試";
+"error.unknown" = "發生未知錯誤，請重試"; 
