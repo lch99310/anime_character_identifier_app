@@ -23,7 +23,6 @@ enum AppConfig {
     - Large, obvious design elements
     - Distinctive color combinations
     2. Detail Compensation:
-    - Account for JPEG artifacts and blur
     - Look for color-stable identifiers
     - Focus on high-contrast elements
     - Consider general shape patterns over fine details
