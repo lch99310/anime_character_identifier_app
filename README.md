@@ -1,8 +1,19 @@
 # Anime Character Identifier App
 
-An iOS application that helps users identify anime characters by taking photos. Using advanced AI technology including Meta's SAM2 for segmentation and Llama3 for character recognition, the app provides quick and accurate identification of anime characters along with their series information.
+An iOS application that helps users identify anime characters by taking photos, the app provides quick identification of anime characters along with their series information. Using advanced AI technology including Meta's Llama3 for character recognition, Exa ai for searching, and Claude3.5 for debugging, I was able to develop this app in a day.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
+
+## Demo
+
+### App Screenshots
+![Icon](/Pic/icon.png)
+![Home Screen](/Pic/homepage.png)
+![Camera View](/Pic/mainpage.png)
+
+### Character Recognition Demo
+![Character Recognition Demo](/Pic/demo.gif)
+
 
 ## Features
 
@@ -15,9 +26,31 @@ An iOS application that helps users identify anime characters by taking photos. 
 ## How It Works
 
 1. **Capture**: Take a photo of an anime character you want to identify
-2. **Process**: SAM2 segments the character from the background
+2. **Process**: SAM2 segments the character from the background (Not yet developing)
 3. **Identify**: Llama3 analyzes the image using our Anime Characters Database (ACDB)
 4. **Result**: Get character name, anime series, and related information
+
+## AI-Assisted Development
+
+This project showcases the power of AI-assisted development, utilizing multiple AI tools throughout its lifecycle:
+![Proposal](/Pic/proposal.png)
+
+### Project Planning & Documentation
+- **Claude (Anthropic)**: Used for generating comprehensive documentation, including this README, technical specifications, and API documentation.
+- **Cursor AI**: Assisted in code generation and real-time pair programming during development.
+- **Exa AI**: Helped with research on anime character databases and optimal AI model selection.
+
+### Development Benefits
+- Reduced development time greatly through AI-assisted coding
+- Enhanced code quality with AI-powered code reviews
+- Improved documentation accuracy and completeness
+- Streamlined decision-making process for technical architecture
+
+### AI Development Process
+1. Initial proposal and concept development with Claude
+2. Technical architecture planning with Exa AI
+3. Code generation and optimization with Cursor AI
+4. Documentation and testing strategy with Claude
 
 ## Technical Stack
 
@@ -83,10 +116,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Meta for SAM2 and Llama3 models
 - The anime community for supporting this project
 - All contributors and testers
+- AI assistants (Claude, Cursor AI, Exa AI) for development support
 
 ## Contact
 
 Project Link: [https://github.com/yourusername/anime-character-identifier-app](https://github.com/yourusername/anime-character-identifier-app)
 
 ---
-Built with ❤️ for anime fans
+Built with ❤️ for anime fans and powered by AI 🤖

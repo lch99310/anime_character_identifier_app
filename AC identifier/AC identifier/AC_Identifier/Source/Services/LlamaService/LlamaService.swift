@@ -7,11 +7,21 @@ class LlamaService {
     private let apiUrl = "https://api.groq.com/openai/v1/chat/completions"
     private let imageProcessor = ImageProcessor()
     
+    private var retryCount = 0
+    private let maxRetries = 3
+    private let retryDelay: TimeInterval = 5 // 5秒
+    
     private init() {}
     
     func identifyCharacter(from image: UIImage, completion: @escaping (Result<String, Error>) -> Void) {
         guard AppConfig.validateAPIKeys() else {
             completion(.failure(AppError.configurationError))
+            return
+        }
+        
+        guard retryCount < maxRetries else {
+            completion(.failure(AppError.rateLimitExceeded))
+            retryCount = 0
             return
         }
         
@@ -69,7 +79,20 @@ class LlamaService {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            guard let self = self else { return }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode == 429 {
+                    print("達到API限制，等待\(self.retryDelay)秒後重試...")
+                    self.retryCount += 1
+                    DispatchQueue.main.asyncAfter(deadline: .now() + self.retryDelay) {
+                        self.identifyCharacter(from: image, completion: completion)
+                    }
+                    return
+                }
+            }
+            
             if let error = error {
                 print("網絡錯誤：\(error.localizedDescription)")
                 completion(.failure(AppError.networkError))

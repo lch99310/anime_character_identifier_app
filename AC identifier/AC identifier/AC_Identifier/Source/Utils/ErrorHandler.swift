@@ -15,14 +15,6 @@ class ErrorHandler {
                 })
             }
             
-            if self.shouldShowSettingsButton(for: error) {
-                alert.addAction(UIAlertAction(title: "前往設置", style: .default) { _ in
-                    if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
-                        UIApplication.shared.open(settingsUrl)
-                    }
-                })
-            }
-            
             alert.addAction(UIAlertAction(title: "確定", style: .cancel))
             
             viewController.present(alert, animated: true)
@@ -31,48 +23,8 @@ class ErrorHandler {
     
     private static func getErrorMessage(from error: Error) -> String {
         if let appError = error as? AppError {
-            let description = appError.errorDescription ?? "未知錯誤"
-            if let suggestion = appError.recoverySuggestion {
-                return "\(description)\n\n\(suggestion)"
-            }
-            return description
+            return appError.errorDescription ?? "未知錯誤"
         }
         return error.localizedDescription
-    }
-    
-    private static func shouldShowRetryButton(for error: Error) -> Bool {
-        guard let appError = error as? AppError else { return false }
-        switch appError {
-        case .networkError, .serverError, .imageProcessingFailed,
-             .characterNotFound, .quotaExceeded:
-            return true
-        default:
-            return false
-        }
-    }
-    
-    private static func shouldShowSettingsButton(for error: Error) -> Bool {
-        guard let appError = error as? AppError else { return false }
-        switch appError {
-        case .cameraAccessDenied, .photoLibraryAccessDenied:
-            return true
-        default:
-            return false
-        }
-    }
-    
-    private static func handleRetry(for error: Error, in viewController: UIViewController) {
-        if let homeVC = viewController as? HomeViewController {
-            if let appError = error as? AppError {
-                switch appError {
-                case .networkError, .serverError, .quotaExceeded:
-                    homeVC.retryLastOperation()
-                case .imageProcessingFailed, .characterNotFound:
-                    homeVC.retryImageProcessing()
-                default:
-                    break
-                }
-            }
-        }
     }
 } 

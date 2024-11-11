@@ -7,7 +7,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print("🟢 AppDelegate: application did launch")
         
-        AssetManager.setupAssets()
+        AssetManager.setupAppIcon()
         
         if #available(iOS 13.0, *) {
             print("🟢 AppDelegate: using scene-based lifecycle")

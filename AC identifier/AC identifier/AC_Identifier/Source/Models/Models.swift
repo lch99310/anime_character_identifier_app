@@ -53,4 +53,25 @@ enum Models {
             )
         }
     }
+}
+
+enum AppError: LocalizedError {
+    // ... 其他錯誤類型 ...
+    case rateLimitExceeded
+    
+    var errorDescription: String? {
+        switch self {
+        // ... 其他錯誤描述 ...
+        case .rateLimitExceeded:
+            return "API請求次數已達上限，請稍後再試"
+        }
+    }
+    
+    var recoverySuggestion: String? {
+        switch self {
+        // ... 其他建議 ...
+        case .rateLimitExceeded:
+            return "建議等待幾分鐘後再試"
+        }
+    }
 } 
