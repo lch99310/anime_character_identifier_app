@@ -8,11 +8,11 @@ An iOS application that helps users identify anime characters by taking photos, 
 
 ### App Screenshots
 ![Icon](/Pic/icon.png)
-![Home Screen](/Pic/homepage.png)
-![Camera View](/Pic/mainpage.png)
+![Home Screen](/Pic/homepage.jpg)
+![Camera View](/Pic/mainpage.jpg)
 
 ### Character Recognition Demo
-![Character Recognition Demo](/Pic/demo.gif)
+![Character Recognition Demo](/Pic/demo.GIF)
 
 
 ## Features
