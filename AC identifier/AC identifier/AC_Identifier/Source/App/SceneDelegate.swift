@@ -1,4 +1,5 @@
 import UIKit
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -11,26 +12,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
-        do {
-            try setupWindow(with: windowScene)
-        } catch {
-            print("❌ SceneDelegate: failed to setup window: \(error)")
-        }
-    }
-    
-    private func setupWindow(with windowScene: UIWindowScene) throws {
-        print("🟢 SceneDelegate: setting up window")
-        
         let window = UIWindow(windowScene: windowScene)
-        window.backgroundColor = .white
-        print("🟢 SceneDelegate: window created")
-        
-        let viewController = SimpleWelcomeViewController()
-        window.rootViewController = viewController
-        print("🟢 SceneDelegate: root view controller set")
-        
-        window.makeKeyAndVisible()
+        let contentView = ContentView()
+        window.rootViewController = UIHostingController(rootView: contentView)
         self.window = window
+        window.makeKeyAndVisible()
+        
         print("✅ SceneDelegate: window setup complete")
     }
     
@@ -41,4 +28,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         print("🟢 SceneDelegate: scene did become active")
     }
-} 
+}

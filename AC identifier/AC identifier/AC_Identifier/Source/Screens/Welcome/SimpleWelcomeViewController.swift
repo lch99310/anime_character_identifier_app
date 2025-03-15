@@ -1,5 +1,6 @@
 import UIKit
 import AVFoundation
+import SwiftUI
 
 class SimpleWelcomeViewController: UIViewController {
     
@@ -86,4 +87,4 @@ class SimpleWelcomeViewController: UIViewController {
         navController.modalPresentationStyle = .fullScreen
         present(navController, animated: true)
     }
-} 
+}
